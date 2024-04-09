@@ -9,6 +9,7 @@ namespace EstudiantesApp.Models
 
         [Required(ErrorMessage = "El campo nombre es requerido")]
         [StringLength(80, MinimumLength = 2, ErrorMessage = "El campo nombre debe tener un minimo de 2 y un maximo de 80 caracteres")]
+        [RegularExpression(@"^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+$", ErrorMessage = "El nombre del estudiante debe contener solo letras y acentuaciones")]
         public string NombreCompleto { get; set; }
 
         [Required(ErrorMessage = "El campo Parcial 1 es requerido")]

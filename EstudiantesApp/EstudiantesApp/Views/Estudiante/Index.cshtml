@@ -50,6 +50,7 @@
                             <th width="15%">@item.Final</th>
                             <th class="text-center">
                                 <div class="w-75 btn-group" role="group">
+                                    <a asp-controller="Estudiante" asp-action="Mostrar" asp-route-Id="@item.Id" class="btn btn-info mx-2"><i class="fas fa-eye"></i></a>
                                     <a asp-controller="Estudiante" asp-action="Editar" asp-route-Id="@item.Id" class="btn btn-warning mx-2"><i class="fas fa-edit"></i></a>
                                     <a asp-controller="Estudiante" asp-action="Eliminar" asp-route-Id="@item.Id" class="btn btn-danger mx-2"><i class=" fas fa-trash-alt"></i></a>
                                 </div>

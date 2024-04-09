@@ -19,6 +19,21 @@ namespace EstudiantesApp.Controllers
             return View(lista);
         }
 
+        public IActionResult Mostrar(int Id)
+        {
+            if (Id == null || Id == 0)
+            {
+                return NotFound();
+            }
+            var obj = _db.Estudiante.Find(Id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+
         public IActionResult Crear()
         {          
 

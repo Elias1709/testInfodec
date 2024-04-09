@@ -1,0 +1,68 @@
+﻿@model IEnumerable<EstudiantesApp.Models.Estudiante>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class=  "container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Lista de Estudiantes</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Estudiante" asp-action="Crear" class="btn btn-primary"> <i class="fas fa-plus"> </i> Agregar estudiante</a>
+        </div>
+        <br /> 
+        <br />
+        @if (Model.Count()>0)
+        {
+            <table class="table table-bordered table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>
+                            Nombre Completo
+                        </th>
+                        <th>
+                            Parcial 1
+                        </th>
+                        <th>
+                            Parcial 2
+                        </th>
+                        <th>
+                            Parcial 3
+                        </th>
+                        <th>
+                            Final
+                        </th>
+                        <th class="text-center">
+                            Acciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th width="40%">@item.NombreCompleto</th>
+                            <th width="15%">@item.Parcial1</th>
+                            <th width="15%">@item.Parcial2</th>
+                            <th width="15%">@item.Parcial3</th>
+                            <th width="15%">@item.Final</th>
+                            <th class="text-center">
+                                <div class="w-75 btn-group" role="group">
+                                    <a asp-controller="Estudiante" asp-action="Editar" asp-route-Id="@item.Id" class="btn btn-warning mx-2"><i class="fas fa-edit"></i></a>
+                                    <a asp-controller="Estudiante" asp-action="Eliminar" asp-route-Id="@item.Id" class="btn btn-danger mx-2"><i class=" fas fa-trash-alt"></i></a>
+                                </div>
+                            </th>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No hay registros de Estudiante</p>
+        }
+    </div>
+</div>
+
